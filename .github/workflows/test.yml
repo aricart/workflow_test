@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    tags:
+      - '*'
+    branches:
+      - '*'
+  pull_request:
+    branches: [main]
+    types: [opened]
+
+jobs:
+  install_deps:
+    uses: aricart/workflow_test/.github/workflows/install.yml
+
+  test:
+    runs-on: ubuntu-latest
+    needs: install_deps
+    steps:
+    - name: print_version
+      run: |
+        deno --version

@@ -1,0 +1,15 @@
+name: Install Tools
+
+on:
+  workflow_call:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    environment: CI
+
+    steps:
+      - name: Use Deno Version ${{ matrix.deno-version }}
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: ${{ matrix.deno-version }}
