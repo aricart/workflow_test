@@ -12,7 +12,7 @@ on:
 
 jobs:
   install_deps:
-    uses: aricart/workflow_test/.github/workflows/install.yml
+    uses: ./.github/workflows/install.yml
 
   test:
     runs-on: ubuntu-latest
